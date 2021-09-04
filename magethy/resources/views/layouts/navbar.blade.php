@@ -14,15 +14,39 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- inicio de menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#"><img src="{{URL::asset('image/logo2.JPG')}}" width="100%" height="90px"></a>
+<div class="container-fluid">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Docentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Aprendices</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">fichas</a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+</nav>
+<!-- fin de menu -->
     <!-- Content--->
         <div>
-             @yield('contenido')
+             @yield('contenido');
         </div>
     <!-- end Content-->
-   
+   <!-- footer -->
     <div class="p-3 mb-2 bg-info text-white fixed-bottom text-center">
     <h4>HECHO POR MANOS COLOMBIANAS 💖</h4>  
     </div>
+
+    <!-- finalización footer -->
 
 
 </body>

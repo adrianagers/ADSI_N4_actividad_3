@@ -1,13 +1,14 @@
-@extends('footer.footer')
-@section('contenido')
+@extends('layouts.footer')
+@section('content')
 
 <!-- inicio de menu -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-<a class="navbar-brand" href="#"><img src="{{URL::asset('image/logo2.JPG')}}" width="100%" height="90px"></a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Diurna</a>
+<a class="navbar-brand" href="#"><img src="{{URL::asset('image/logo2.JPG')}}" width="200%" height="100px"></a>
+<div class="container-fluid">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Diurna</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Nocturna</a>
@@ -19,6 +20,7 @@
       
     </ul>
   </div>
+</div>
 </nav>
 <!-- fin de menu -->
 
