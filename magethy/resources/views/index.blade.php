@@ -8,14 +8,14 @@
   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Diurna</a>
+        <a class="nav-link active" href="{{route('files.index')}}">Diurna</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Nocturna</a>
+        <a class="nav-link" href="{{route('files.index')}}">Nocturna</a>
       </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Fines de semana</a>
+        <a class="nav-link" href="{{route('files.index')}}">Fines de semana</a>
       </li>
       
     </ul>
@@ -55,5 +55,4 @@
 </div>
 
 <!-- finalización de carousel img -->
-
 @endsection

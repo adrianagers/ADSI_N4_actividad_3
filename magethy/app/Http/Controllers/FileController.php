@@ -25,7 +25,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        return view('files.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file= File::create([
+            'name'=>$request->input('name'),
+            'work_days_id'=>$request->input('work_days_id')
+               
+        ]);
+        
+        return redirect()->route('files.index');
     }
 
     /**
@@ -47,8 +53,11 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        //
+        $file =File::find($id);
+        return view('files.show', compact('file'));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +67,8 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $file = File::find($id);
+        return view('files.edit', compact('file'));
     }
 
     /**
@@ -70,7 +80,12 @@ class FileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $file= File::find($id)->update([
+            'name'=>$request->input('name'),
+            'work_days_id'=>$request->input('work_days_id')
+            
+        ]);
+        return redirect()->route('files.index');
     }
 
     /**
@@ -81,6 +96,7 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file= File::find($id)->delete($id);
+        return redirect()->route('files.index');
     }
 }
