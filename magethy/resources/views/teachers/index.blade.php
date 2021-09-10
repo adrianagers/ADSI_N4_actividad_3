@@ -2,7 +2,17 @@
 
 @section('contenido')
 
+<form action="{{}}" method="post" target="_blank">
 
+  <p>
+
+    <input type="search" name="buscadorfile" placeholder="Buscador">
+
+    <input type="submit" value="Buscar">
+
+  </p>
+
+</form>
     <div class="container">
     <a href="{{route('files.create')}}"class="btn btn-sm btn-info m-4">Crear nueva ficha</a>
 

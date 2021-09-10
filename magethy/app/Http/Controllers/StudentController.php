@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class FileController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files=File::all(); 
-        return view('files.index', compact('files'));
+        $students=Student::all(); 
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -25,7 +25,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        return view('files.create');
+        return view('students.create');
     }
 
     /**
@@ -36,13 +36,18 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        $file= File::create([
+        $student= Student::create([
             'name'=>$request->input('name'),
-            'work_days_id'=>$request->input('work_days_id')
+            'lastname'=>$request->input('lastname'),
+            'email'=>$request->input('email'),
+            'phone'=>$request->input('phone'),
+            'work_days_id'=>$request->input('work_days_id'),
+            'files_id'=>$request->input('files_id'),
+            'teachers_id'=>$request->input('teachers_id')
                
         ]);
         
-        return redirect()->route('files.index');
+        return redirect()->route('students.index');
    
     }
 
@@ -54,12 +59,9 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        $file =File::find($id);
-        return view('files.show', compact('file'));
-    
+        $student =Student::find($id);
+        return view('students.show', compact('student'));
     }
-
-    
 
     /**
      * Show the form for editing the specified resource.
@@ -69,8 +71,8 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        $file = File::find($id);
-        return view('files.edit', compact('file'));
+        $student = Student::find($id);
+        return view('students.edit', compact('student'));
     
     }
 
@@ -83,12 +85,18 @@ class FileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $file= File::find($id)->update([
+        $student= Student::find($id)->update([
             'name'=>$request->input('name'),
-            'work_days_id'=>$request->input('work_days_id')
+            'lastname'=>$request->input('lastname'),
+            'email'=>$request->input('email'),
+            'phone'=>$request->input('phone'),
+            'work_days_id'=>$request->input('work_days_id'),
+            'files_id'=>$request->input('files_id'),
+            'teachers_id'=>$request->input('teachers_id')
+               
             
         ]);
-        return redirect()->route('files.index');
+        return redirect()->route('students.index');
     
     }
 
@@ -100,8 +108,8 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        $file= File::find($id)->delete($id);
-        return redirect()->route('files.index');
+        $student= Student::find($id)->delete($id);
+        return redirect()->route('students.index');
     
     }
 }

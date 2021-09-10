@@ -24,11 +24,11 @@
         <a class="nav-link active" href="#">Docentes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Aprendices</a>
+        <a class="nav-link" href="{{route('students.index')}}">Aprendices</a>
       </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">fichas</a>
+        <a class="nav-link" href="{{route('files.index')}}">fichas</a>
       </li>
       
     </ul>
