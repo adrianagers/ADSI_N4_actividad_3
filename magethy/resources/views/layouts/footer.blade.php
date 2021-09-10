@@ -22,14 +22,15 @@
     <!-- end Content-->
     
    
-    <div class="p-3 mb-2 bg-info text-white fixed-bottom text-center">
-    <h4>HECHO POR MANOS COLOMBIANAS 💖</h4>  
+    <div class="p-3 mb-2 bg-danger text-white fixed-bottom text-center">
+    <h4>HECHO CON AMOR  💖</h4> 
+    <h5>👉@mathyu -- @Geraldine👈</h5>
     </div>
     <!-- <script src="{{asset('js/app.js')}}"></script> -->
         <script>
         Swal.fire(
-        'The Internet?',
-        'That thing is still around?',
+        'Bienvenido a la Base de datos Magethy ',
+        'Deseas Seguir?',
         'question'
         )
         </script>

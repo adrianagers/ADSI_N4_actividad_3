@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="{{route('files.index')}}">Diurna</a>
+        <a class="nav-link active" href="{{route('teachers.index')}}">Diurna</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('files.index')}}">Nocturna</a>
+        <a class="nav-link" href="{{route('students.index')}}">Nocturna</a>
       </li>
       </li>
       <li class="nav-item">

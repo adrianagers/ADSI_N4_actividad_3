@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class StudentController extends Controller
 {
@@ -12,10 +14,18 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students=Student::all(); 
-        return view('students.index', compact('students'));
+        $texto=trim($request->get('texto')) ;
+        $students=DB::table('students') 
+                    ->select('id','name','lastname','email','phone','work_days_id','files_id','teachers_id') 
+                    ->where('name','LIKE','%'.$texto.'%')
+                    ->orwhere('lastname','LIKE','%'.$texto.'%')
+                    ->orwhere('email','LIKE','%'.$texto.'%')
+                    ->paginate(5);
+
+        return view('students.index', compact('students','texto'));
+    
     }
 
     /**
@@ -43,8 +53,7 @@ class StudentController extends Controller
             'phone'=>$request->input('phone'),
             'work_days_id'=>$request->input('work_days_id'),
             'files_id'=>$request->input('files_id'),
-            'teachers_id'=>$request->input('teachers_id')
-               
+            'teachers_id'=>$request->input('teachers_id')   
         ]);
         
         return redirect()->route('students.index');
@@ -61,6 +70,7 @@ class StudentController extends Controller
     {
         $student =Student::find($id);
         return view('students.show', compact('student'));
+    
     }
 
     /**

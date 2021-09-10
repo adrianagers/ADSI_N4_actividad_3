@@ -2,11 +2,12 @@
 
 @section('contenido')
     <div class="container">
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-10">
+            <div class="card p-4">
                 <div class="card-body">
                         <table class="responsive">
                             <thead>
+                                <h1 class="text-danger text-center">Detalles del estudiante</h1>
                                 <tr>
                                     <th>Nombre</th>
                                     <th>{{$student->name}}</th>

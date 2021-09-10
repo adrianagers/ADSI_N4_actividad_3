@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,11 @@ Route::put('students/{id}',[StudentController::class,'update'])->name('students.
 Route::get('student/create',[StudentController::class,'create'])->name('students.create');
 Route::post('student',[StudentController::class,'store'])->name('students.store');
 Route::delete('students/{id}',[StudentController::class,'destroy'])->name('students.destroy');
+
+Route::get('teachers',[TeacherController::class,'index'])->name('teachers.index');
+Route::get('teachers/{id}',[TeacherController::class,'show'])->name('teachers.show');
+Route::get('teachers/{id}/edit',[TeacherController::class,'edit'])->name('teachers.edit');
+Route::put('teachers/{id}',[TeacherController::class,'update'])->name('teachers.update');
+Route::get('teacher/create',[TeacherController::class,'create'])->name('teachers.create');
+Route::post('teacher',[TeacherController::class,'store'])->name('teachers.store');
+Route::delete('teachers/{id}',[TeacherController::class,'destroy'])->name('teachers.destroy');

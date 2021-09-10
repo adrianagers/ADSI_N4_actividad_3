@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FileController extends Controller
 {
@@ -12,10 +13,16 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $files=File::all(); 
-        return view('files.index', compact('files'));
+        $texto=trim($request->get('texto')) ;
+        $files=DB::table('files')
+                    ->select('id','name','work_days_id') 
+                    ->where('name','LIKE','%'.$texto.'%')
+                    ->orderBy('name','asc')
+                    ->paginate(5);
+
+        return view('files.index', compact('files','texto'));
     }
 
     /**

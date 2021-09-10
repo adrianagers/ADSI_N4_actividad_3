@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Docentes</a>
+        <a class="nav-link active" href="{{route('teachers.index')}}">Docentes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('students.index')}}">Aprendices</a>
@@ -30,20 +30,22 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('files.index')}}">fichas</a>
       </li>
-      
+          
     </ul>
   </div>
 </div>
 </nav>
 <!-- fin de menu -->
+
     <!-- Content--->
         <div>
              @yield('contenido');
         </div>
     <!-- end Content-->
    <!-- footer -->
-    <div class="p-3 mb-2 bg-info text-white fixed-bottom text-center">
-    <h4>HECHO POR MANOS COLOMBIANAS 💖</h4>  
+   <div class="p-3 mb-2 bg-danger text-white text-center">
+    <h4>HECHO CON AMOR  💖</h4> 
+    <h5>👉@mathyu -- @Geraldine👈</h5>
     </div>
 
     <!-- finalización footer -->

@@ -19,11 +19,11 @@
                                 </tr>
                                 <tr>
                                     <th>correo</th>
-                                    <th> <input type="email" class="form-control" name="email" value=""></th>
+                                    <th> <input type="text" class="form-control" name="email" value=""></th>
                                 </tr>
                                 <tr>
                                     <th>phone</th>
-                                    <th> <input type="number" class="form-control" name="phone" value=""></th>
+                                    <th> <input type="text" class="form-control" name="phone" value=""></th>
                                 </tr>
                                
                                 <tr>
@@ -52,7 +52,7 @@
                                         <option selected>Seleccionar ficha..</option>
                                         <option value="1">2024371</option>
                                         <option value="2">345678</option>
-                                        <option value="4">12345678</option>
+                                        <option value="3">123456</option>
                                         </select>
                                     </div>
                                     </th>
@@ -63,9 +63,9 @@
                                         <label for="exampleFormControlSelect1">Profesor</label>
                                         <select class="form-control" name= "teachers_id" id="exampleFormControlSelect1" >
                                         <option selected>Seleccionar profesor..</option>
-                                        <option value="2">Robinson</option>
-                                        <option value="3">Maria LuzCamacho </option>
-                                        <!-- <option value="3">Heiver</option> -->
+                                        <option value="1">Robinson</option>
+                                        <option value="2">Maria LuzCamacho </option>
+                                        <option value="3">Heiver</option>
                                         </select>
                                     </div>
                                     </th>

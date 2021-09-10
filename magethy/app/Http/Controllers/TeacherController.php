@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class TeacherController extends Controller
 {
@@ -11,9 +15,19 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $texto=trim($request->get('texto')) ;
+        $teachers=DB::table('teachers')
+        ->select('id','name','lastname','phone','email','work_days_id','files_id')
+        ->where('name','LIKE','%'.$texto.'%')
+        ->orwhere('lastname','LIKE','%'.$texto.'%') 
+        ->orwhere('email','LIKE','%'.$texto.'%') 
+        ->orderBy('name','asc')
+        ->paginate(5);
+
+        return view('teachers.index', compact('teachers','texto'));
+    
     }
 
     /**
@@ -23,7 +37,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teachers.create');
     }
 
     /**
@@ -34,7 +48,19 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teacher= Teacher::create([
+            'name'=>$request->input('name'),
+            'lastname'=>$request->input('lastname'),
+            'phone'=>$request->input('phone'),
+            'email'=>$request->input('email'),
+            'work_days_id'=>$request->input('work_days_id'),
+            'files_id'=>$request->input('files_id')
+            
+               
+        ]);
+        
+        return redirect()->route('teachers.index');
+   
     }
 
     /**
@@ -45,7 +71,9 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('teachers.show', compact('teacher'));
+    
     }
 
     /**
@@ -56,7 +84,9 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('teachers.edit', compact('teacher'));
+    
     }
 
     /**
@@ -68,7 +98,18 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $teacher= Teacher::find($id)->update([
+            'name'=>$request->input('name'),
+            'lastname'=>$request->input('lastname'),
+            'phone'=>$request->input('phone'),
+            'email'=>$request->input('email'),
+            'work_days_id'=>$request->input('work_days_id'),
+            'files_id'=>$request->input('files_id')
+                           
+            
+        ]);
+        return redirect()->route('teachers.index');
+    
     }
 
     /**
@@ -79,6 +120,7 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $teacher= Teacher::find($id)->delete($id);
+        return redirect()->route('teachers.index');
     }
 }
