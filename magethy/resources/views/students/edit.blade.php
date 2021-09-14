@@ -7,6 +7,7 @@
             <form action="{{route('students.update', $student->id)}}" method="post">
                 @csrf
                 @method('PUT')
+                
                 <div class="card-body">
                         <table class="responsive">
                             <thead>
